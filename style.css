@@ -117,3 +117,9 @@ body::after{
     font-size: 5.5rem;
 }
 
+#watermark {
+    font-family: 'Poppins', sans-serif;
+    color: aliceblue;
+    margin-top: 670px;
+    text-shadow: 1px 1px black;
+}
