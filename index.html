@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>Clock-HDz</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="clock">
+        <div class="inside">
+            <div class="content">
+                <p class="days">
+                    <span id="sun"><b>SUN</b></span>&nbsp;
+                    <span id="mon"><b>MON</b></span>&nbsp;
+                    <span id="tue"><b>TUE</b></span>&nbsp;
+                    <span id="wed"><b>WED</b></span>&nbsp;
+                    <span id="thu"><b>THU</b></span>&nbsp;
+                    <span id="fri"><b>FRI</b></span>&nbsp;
+                    <span id="sat"><b>SAT</b></span>&nbsp;
+                </p>
+                <br>
+                <p class="text">
+                    <span id="hours"></span> :
+                    <span id="minutes"></span> :
+                    <span id="second"></span>
+                    <!-- <span id="time"></span> -->
+                </p>
+                <p class="date">
+                    <span id="day"></span>
+                    <span id="month"></span>
+                    <span id="year"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var daysofweek = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+        var month = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECMBER'];
+    
+        function clock() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            var daytoday = today.getDay();
+            var date = today.getDate();
+            var mon = today.getMonth();
+            var year = today.getFullYear();
+    
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+    
+            document.getElementById('hours').innerHTML = h;
+            document.getElementById('minutes').innerHTML = m;
+            document.getElementById('second').innerHTML = s;
+            // document.getElementById('time').innerHTML = time;
+            document.getElementById('day').innerHTML = date; // Fix ID
+            document.getElementById('month').innerHTML = month[mon];
+            document.getElementById('year').innerHTML = year;
+            document.getElementById(''+daysofweek[daytoday]+'').style.color = '#fff';
+        }
+    
+        var inter = setInterval(clock, 400);
+    </script>
+
+</body>
+</html>
